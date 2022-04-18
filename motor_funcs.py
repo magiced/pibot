@@ -4,6 +4,19 @@
 import RPi.GPIO as GPIO  # Import the GPIO Library
 import time  # Import the Time library
 
+def right_motor_fwd():
+    GPIO.output(9, 0)
+    GPIO.output(10, 1)
+
+def right_motor_back():
+    GPIO.output(9, 1)
+    GPIO.output(10, 0)
+    
+def right_motor_off():
+    GPIO.output(9, 1)
+    GPIO.output(10, 0)
+
+
 # Set the GPIO modes
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -17,8 +30,8 @@ GPIO.setup(10, GPIO.OUT)
 # Turn all motors off
 GPIO.output(7, 0)
 GPIO.output(8, 0)
-GPIO.output(9, 0)
-GPIO.output(10, 0)
+GPIO.output(9, 0) # right motor # 
+GPIO.output(10, 0) # right motor
 
 # Turn the right motor forwards
 GPIO.output(9, 0)
