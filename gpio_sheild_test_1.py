@@ -12,14 +12,16 @@ GPIO.setmode(GPIO.BOARD)
 for i in gpio_pins:
     GPIO.setup(i, GPIO.OUT)
 
-for i in range(10):
-    for i in gpio_pins:
-        GPIO.output(i, True)
-        time.sleep(0.1)
-        
-    for i in gpio_pins:
-        GPIO.output(i, False)
-        time.sleep(0.1)
+GPIO.output(7, True)
 
+# for i in range(10):
+#     for i in gpio_pins:
+#         GPIO.output(i, True)
+#         time.sleep(0.1)
+#         
+#     for i in gpio_pins:
+#         GPIO.output(i, False)
+#         time.sleep(0.1)
+x = input('wait')
 # Reset the GPIO pins (turns off motors too)
 GPIO.cleanup()

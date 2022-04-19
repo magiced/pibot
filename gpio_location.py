@@ -15,6 +15,10 @@ GPIO.setmode(GPIO.BOARD)
 for i in gpio_pins:
     GPIO.setup(i, GPIO.OUT)
     GPIO.output(i, OFF)
+    
+f_obj = open('gpio_out.csv','w')
+
+f_obj.write('x,y,name\n')
 
 for i in gpio_pins:
     print(f"GPIO Pin {i}")
@@ -23,6 +27,7 @@ for i in gpio_pins:
     y = input(f"    Y co-ord->")
     name = input(f"    name->")
     gpio_locs[i] = {'x':x, 'y':y, 'name':name}
+    f_obj.write(f'{x},{y},{name}\n')
     GPIO.output(i, OFF)
 
 for  key, value in gpio_locs.items():
