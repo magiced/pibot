@@ -1,0 +1,27 @@
+pin,x,y,name
+3,0,7,sda
+5,0,6,scl
+7,0,4,io4
+8,2,7,txd
+10,2,6,rxd,red led
+11,3,7,io17
+12,3,6,io18
+13,0,3,io27
+15,1,5,i022,note that above ys are not zero indexed
+16,1,6,io23
+18,2,4,io24
+19,3,4,mosi
+21,3,3,miso
+22,2,3,io26
+23,3,2,sclk
+24,3,1,ce0
+26,3,0,ce1
+29,2,2,io6
+31,2,1,io6,note above is io5
+32,1,2,io12
+33,0,1,io13
+35,1,0,io19
+36,2,0,io16
+37,0,0,io26
+38,1,1,io20
+40,0,2,io13
