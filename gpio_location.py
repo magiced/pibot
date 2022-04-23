@@ -23,12 +23,14 @@ f_obj.write('x,y,name\n')
 for i in gpio_pins:
     print(f"GPIO Pin {i}")
     GPIO.output(i,ON)
-    x = input(f"    X co-ord->")
-    y = input(f"    Y co-ord->")
-    name = input(f"    name->")
-    gpio_locs[i] = {'x':x, 'y':y, 'name':name}
-    f_obj.write(f'{x},{y},{name}\n')
+    x = input(f"    X,Y,name->")
+#     y = input(f"    Y co-ord->")
+#     name = input(f"    name->")
+    gpio_locs[i] = {'x':x}#, 'y':y, 'name':name}
+    f_obj.write(f'{i},{x}\n')#,{y},{name}\n')
     GPIO.output(i, OFF)
 
 for  key, value in gpio_locs.items():
-    print(f"{key}: x:{value['x']}, y:{value['y']}, name:{value['name']}")
+    print(f"{key}: x:{value['x']}")#, y:{value['y']}, name:{value['name']}")
+
+f_obj.close()
