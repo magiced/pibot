@@ -17,8 +17,11 @@ right_motor_back_pin =  10
 
 frequency = 20
 
-left_duty_cycle = 30 # %
-right_duty_cycle = 30 # %
+left_duty_cycle_fwd  = 100 - 0  # %
+left_duty_cycle_back = 100 - 10
+right_duty_cycle_fwd  = 100 - 6  # %
+right_duty_cycle_back = 100 - 20 # %
+
 stop = 0 # %
 
 # def setup_GPIO(): # need to OOP this for this func to work correctly
@@ -47,14 +50,14 @@ pwm_back_left.start(stop)
 def right_motor_fwd():
     # GPIO.output(right_motor_fwd_pin, 1)
     # GPIO.output(right_motor_back_pin, 0)
-    pwm_fwd_right.ChangeDutyCycle(right_duty_cycle)
+    pwm_fwd_right.ChangeDutyCycle(right_duty_cycle_fwd)
     pwm_back_right.start(stop)
 
 def right_motor_back():
     # GPIO.output(right_motor_fwd_pin, 0)
     # GPIO.output(right_motor_back_pin, 1)
     pwm_fwd_right.start(stop)
-    pwm_back_right.ChangeDutyCycle(right_duty_cycle)
+    pwm_back_right.ChangeDutyCycle(right_duty_cycle_back)
     
 def right_motor_off():
     # GPIO.output(right_motor_fwd_pin, 0)
@@ -65,14 +68,14 @@ def right_motor_off():
 def left_motor_fwd():
     # GPIO.output(left_motor_fwd_pin, 1)
     # GPIO.output(left_motor_back_pin, 0)
-    pwm_fwd_left.ChangeDutyCycle(left_duty_cycle)
+    pwm_fwd_left.ChangeDutyCycle(left_duty_cycle_fwd)
     pwm_back_left.start(stop)
 
 def left_motor_back():
     # GPIO.output(left_motor_fwd_pin, 0)
     # GPIO.output(left_motor_back_pin, 1)
     pwm_fwd_left.start(stop)
-    pwm_back_left.ChangeDutyCycle(left_duty_cycle)
+    pwm_back_left.ChangeDutyCycle(left_duty_cycle_back)
     
 def left_motor_off():
     # GPIO.output(left_motor_fwd_pin, 0)
@@ -120,15 +123,22 @@ def move_back(mv_time):
 
 # setup_GPIO()
 
-#rotate_left(0.71)
-#rotate_right(0.71)
+# turn_left(1)
+# turn_right(1)
 
-move_fwd(1)
-move_back(1)
-# for i in range(4):
-#     move_fwd(1.5)
-#     rotate_left(0.6)
-#     time.sleep(0.1)
+# rotate_left(3)
+# input('Press Enter to continue...')
+# rotate_right(3-0.2)
+
+# move_fwd(3)
+# input('Press Enter to continue...')
+# move_back(3)
+
+for i in range(4):
+    move_fwd(1.5)
+    time.sleep(0.1)
+    rotate_left(3/4)
+    time.sleep(0.1)
 #rotate_right(1)
 
 # Reset the GPIO pins (turns off motors too)
